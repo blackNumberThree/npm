@@ -8,7 +8,7 @@ export function JSXComponent(params) {
       <img src="" alt="" />
       <p>When i get up, I say {simpleElement}</p>
       <p className="bigParagraph"></p>
-      {console.log(simpleElement)}
+      {/* {console.log(simpleElement)} */}
       <br />
       {"hello" + "world"}
       {/* {
