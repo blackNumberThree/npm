@@ -1,30 +1,14 @@
-import { useRef } from "react";
+import { useContext } from "react";
+import { ThemeContext } from "./App";
 
 export function FunctionalComponent(props) {
-  let number = 1;
-  // console.log(props);
-  // const ref = useRef(0);
-  // const handleSubmit = (event) => {
-  /* Скасуємо реакцію оброблювача за замовченням */
-  // event.preventDefault();
-  /* Отримуємо доступ до текстового поля */
-  // let fName = document.getElementById("userName");
-  // let fName = ref.current.value;
-  // console.log(fName);
-  // };
-  function iterator() {
-    number = number + 1;
-  }
+  const theme = useContext(ThemeContext);
+  console.log(theme);
 
   return (
     <>
       <p>Hello i am functional Component</p>
-      <p>{number}</p>
-      <button onClick={iterator}>Press me</button>
+      <p>{theme}</p>
     </>
-    // <form onSubmit={handleSubmit}>
-    //   <input type="text" id="userName" ref={ref} />
-    //   <input type="submit" value="Click me" />
-    // </form>
   );
 }
