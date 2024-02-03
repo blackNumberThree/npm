@@ -1,30 +1,28 @@
-import { useRef } from "react";
+import React, { useState, useEffect } from "react";
 
 export function FunctionalComponent(props) {
-  let number = 1;
-  // console.log(props);
-  // const ref = useRef(0);
-  // const handleSubmit = (event) => {
-  /* Скасуємо реакцію оброблювача за замовченням */
-  // event.preventDefault();
-  /* Отримуємо доступ до текстового поля */
-  // let fName = document.getElementById("userName");
-  // let fName = ref.current.value;
-  // console.log(fName);
-  // };
-  function iterator() {
-    number = number + 1;
-  }
+  const [counter, setCounter] = useState(0);
 
+  useEffect(() => {
+    document.title = `You clicked ${counter} times`;
+    return () => console.log("function component will unmount");
+  }, []);
   return (
     <>
-      <p>Hello i am functional Component</p>
-      <p>{number}</p>
-      <button onClick={iterator}>Press me</button>
+      <div className="App">
+        <h1>Рахунок : {counter}</h1>
+        <button onClick={() => setCounter(counter + 1)}>
+          збільшити рахунок +1
+        </button>
+      </div>
     </>
-    // <form onSubmit={handleSubmit}>
-    //   <input type="text" id="userName" ref={ref} />
-    //   <input type="submit" value="Click me" />
-    // </form>
   );
 }
+// useEffect(() => {
+//   document.title = `You clicked ${counter} times`;
+// },[]);
+
+// useEffect(() => {
+//   document.title = `You clicked ${counter} times`;
+//   return () => "Component will unmount";
+// },);

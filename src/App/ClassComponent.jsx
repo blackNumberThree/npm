@@ -1,49 +1,31 @@
-// import React, { Component } from "react";
-
-// export class ClassComponent extends Component {
-//   // state = { somevalue: 32 };
-//   // nameRef = React.createRef();
-//   // handlerSubmit = (event) => {
-//   //   event.preventDefault();
-//   //   let input = this.nameRef.current;
-//   //   console.log(input);
-//   // };
-//   render() {
-//     return (
-//       <>
-//         <h1>Hello, I am class component!</h1>
-//         {/* <input
-//           type="text"
-//           placeholder="Input name"
-//           ref={this.nameRef}
-//           required
-//         />
-//         <input type="submit" value="Send data" onClick={this.handlerSubmit} /> */}
-//       </>
-//     );
-//   }
-// }
-
 import { Component } from "react";
 
 export class ClassComponent extends Component {
-  state = { number: 1 };
-
-  iterator() {
-    console.log(this);
-    // this.setState({ number: 2 });
+  constructor(props) {
+    super(props);
+    console.log("Constructor");
+    this.state = {
+      counter: 0,
+    };
   }
-
+  componentDidMount() {
+    console.log("Component did mount");
+  }
+  componentDidUpdate() {
+    console.log("Component did update");
+  }
+  componentWillUnmount() {
+    console.log("Component will unmount");
+  }
   render() {
+    const clickHandler = () => {
+      this.setState({ counter: this.state.counter + 1 });
+    };
     return (
-      <>
-        <p>{this.state.number}</p>
-        <button onClick={this.iterator}>Press me</button>
-
-        {/* <p>Hello I am ClassComponent</p>
-        <br />
-        <p>Hello I am ClassComponent</p> */}
-      </>
+      <div className="App">
+        <h1>Рахунок {this.state.counter}</h1>
+        <button onClick={clickHandler}> збільшити рахунок</button>
+      </div>
     );
   }
 }
