@@ -1,13 +1,17 @@
-import { JSXComponent } from "./JSXomponent";
-import { FunctionalComponent } from "./FunctionalComponent";
-import { ClassComponent } from "./ClassComponent";
+import { WrappedComponent } from "./WrapedComponent";
+import { createContext } from "react";
+
 import "../index.css";
+
+export const ThemeContext = createContext(null);
+
+const someData = "dark";
 function App() {
   return (
     <>
-      <FunctionalComponent></FunctionalComponent>
-      <JSXComponent />
-      <ClassComponent></ClassComponent>
+      <ThemeContext.Provider value={someData}>
+        <WrappedComponent></WrappedComponent>
+      </ThemeContext.Provider>
     </>
   );
 }
