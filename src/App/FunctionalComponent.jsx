@@ -4,9 +4,8 @@ export function FunctionalComponent(props) {
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
-    document.title = `You clicked ${counter} times`;
-    return () => console.log("function component will unmount");
-  }, []);
+    console.log(`You clicked ${counter} times`);
+  });
   return (
     <>
       <div className="App">
@@ -24,5 +23,5 @@ export function FunctionalComponent(props) {
 
 // useEffect(() => {
 //   document.title = `You clicked ${counter} times`;
-//   return () => "Component will unmount";
-// },);
+//   return () => console.log("function component will unmount");
+// });
